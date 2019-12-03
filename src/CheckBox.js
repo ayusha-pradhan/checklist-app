@@ -2,43 +2,28 @@ import React from 'react';
 
 
 export default class CheckBox extends React.Component{
-
+  
 render(){
-    const {places,checked}= this.props;
+    const {places}= this.props;
+    
     return (
                  <div >
-                
+                    <label>
                     <input
-                        // name={this.name}
                         type="checkbox"
                         places={places}
-                        checked={checked}
-                        onClick={(places)=>this.toggleTodo(places)}
+                        checked={places.check}
+                        onChange={(places)=>this.toggleTodo(places)}
                     />
-                    {places}               
+                    {places}
+                    </label>               
                 </div>
             );
 }
 toggleTodo = ()=>{
-    // debugger;
-    this.props.onClick(this.props.places);
+//    debugger;
+this.props.updateTodoFn(this.props.places);
+console.log(this.props.places);
 }
 
 }
-// export default function CheckBox({ name, place, onCheck }) {
-    
-//     return (
-//         <label>
-//             <input
-//                 name={name}
-//                 type="checkbox"
-//                 place={place}
-//                 // checked={tick }
-//                 onChange={onCheck}
-//             />
-            
-            
-//             {place}
-//         </label>
-//     );
-// } 
